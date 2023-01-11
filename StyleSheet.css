@@ -1,0 +1,9 @@
+/* Style the list items */
+li {
+  list-style-type: none;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Style the completed list items */
