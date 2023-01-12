@@ -4,16 +4,25 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
 	<link href="./StyleSheet.css" rel="StyleSheet">
-	<script src = "./app.js"></script>
+	<script defer src = "./app.js"></script>
 	<title>TODO List</title>
 </head>
 <body>
-	<h1>To-do List</h1>
-	<form>
-		<input type="text" id="input" placeholder="Add a new item">
-		<input type="submit" value="Add" id="submit">
-	</form>
-	<ul id="list"></ul>
+	<div class="container">
+		<h1>To-Do List</h1>
+		<form>
+			<input id="input" type="text" placeholder="Add a new item">
+			<div id="btnCon">
+				<input class="btn" id="submit" type="submit" value="Add">
+				<button class="btn" id="clear">Clear</button>
+				<button class="btn" id="help">Help</button>
+			</div>
+		</form>
+		<i><ul id="list"></ul></i>
+	</div>
 </body>
 </html>

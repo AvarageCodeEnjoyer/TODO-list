@@ -1,9 +1,96 @@
-/* Style the list items */
+:root{
+  --transition-Time: 0.1s;
+  --hover-color: rgb(45, 77, 129);
+}
+
+*{
+  background-color: rgb(31, 31, 31);
+  border-radius: 5px;
+}
+
+
+.container{
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h1{
+  width:auto;
+  background-color: rgb(95, 94, 92);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+::placeholder{
+  color: white;
+  text-align: center;
+}
+
+#input{
+  font-size: 1.5rem;
+  color: white;
+  outline: none;
+  transition: var(--transition-Time);
+}
+
+#input:hover{
+  border: 2px solid var(--hover-color);
+  transition: var(--transition-Time);
+  outline: none;
+}
+
+#input:hover::placeholder{
+  color: var(--hover-color);
+}
+
+#btnCon{
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.btn{
+  width: 50px;
+  height: 30px;
+  color:  white;
+  transition: var(--transition-Time);
+}
+
+.btn:hover{
+  color:var(--hover-color);
+  transition: var(--transition-Time);
+  border: 2px solid var(--hover-color);
+}
+
+#list{
+  padding: 0px
+}
+
+
 li {
   list-style-type: none;
   padding: 10px;
   margin: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(60, 60, 60);
+  transition: var(--transition-Time);
 }
 
+li:hover{
+  color:rgb(162, 0, 0);
+  transition: var(--transition-Time);
+
+}
+
+
 /* Style the completed list items */
+
+.completed{
+  text-decoration: line-through;
+}
+
