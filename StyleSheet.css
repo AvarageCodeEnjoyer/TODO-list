@@ -1,43 +1,96 @@
 :root{
   --transition-Time: 0.1s;
-  --hover-color: rgb(45, 77, 129);
+  --hover-color: rgb(106, 156, 238);
+  --completed-red: rgb(255, 100, 100);
+  --clip-board-color: rgb(130,102,68);
+  --btn-color: rgb(115, 115, 115);
+  --background-color: rgb(126, 165, 168);
+  --paper-color: rgb(210, 210, 210);
 }
 
 *{
-  background-color: rgb(31, 31, 31);
   border-radius: 5px;
 }
 
-
+body{
+  background-color: var(--background-color);
+}
+/* Make container center items and set font */
 .container{
   display: flex;
-  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   font-family: 'Ubuntu', sans-serif;
+  position: relative;
 }
 
+.clipBoard{
+  background-color: var(--clip-board-color);
+  width: 800px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 75px;
+}
+
+#clip{
+  background-color: rgb(115, 115, 115);
+  width: 300px;
+  height: 100px;
+  position: absolute;
+  top: 0px;
+}
+
+#paper{
+  width: 700px;
+  min-height: 650px;
+  background-color: var(--paper-color);
+  z-index: 2;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--paper-color);
+  z-index: 4;
+}
+
+
+
 h1{
-  width:auto;
-  background-color: rgb(95, 94, 92);
+  width: max-content;
+  background-color: var(--btn-color);
   padding: 10px 20px;
+  margin-top: -20px;
   border-radius: 20px;
 }
 
+/* Make placeholder text white and centered */
 ::placeholder{
   color: white;
   text-align: center;
 }
 
+/* Make input text white and add transition time */
 #input{
   font-size: 1.5rem;
-  color: white;
+  color: black;
   outline: none;
+  border: 3px solid black;
   transition: var(--transition-Time);
 }
 
+/* Change border on hover */
 #input:hover{
   border: 2px solid var(--hover-color);
   transition: var(--transition-Time);
@@ -48,18 +101,22 @@ h1{
   color: var(--hover-color);
 }
 
+/* Center three buttons */
 #btnCon{
   display: flex;
+  width: 300px;
   font-size: 1.5rem;
   justify-content: space-around;
   margin-top: 10px;
 }
 
+/* Size buttons and add transition time */
 .btn{
   width: 50px;
   height: 30px;
   color:  white;
   transition: var(--transition-Time);
+  background-color: var(--btn-color);
 }
 
 .btn:hover{
@@ -68,29 +125,34 @@ h1{
   border: 2px solid var(--hover-color);
 }
 
+/* UL lists are not centered normal because of the DOM */
 #list{
   padding: 0px
 }
 
-
+/* Style li items to make boxes */
 li {
   list-style-type: none;
   padding: 10px;
   margin: 5px;
-  border: 1px solid rgb(60, 60, 60);
+  border: 2px solid rgb(0, 0, 0);
   transition: var(--transition-Time);
 }
 
 li:hover{
-  color:rgb(162, 0, 0);
+  color: var(--hover-color);
   transition: var(--transition-Time);
 
 }
 
 
-/* Style the completed list items */
+/* Style the completed list items with strike through*/
 
 .completed{
-  text-decoration: line-through;
+  text-decoration: line-through var(--completed-red);
+}
+
+.completed:hover{
+  color: var(--completed-red);
 }
 

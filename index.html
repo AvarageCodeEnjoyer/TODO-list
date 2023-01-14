@@ -13,16 +13,21 @@
 </head>
 <body>
 	<div class="container">
-		<h1>To-Do List</h1>
-		<form>
-			<input id="input" type="text" placeholder="Add a new item">
-			<div id="btnCon">
-				<input class="btn" id="submit" type="submit" value="Add">
-				<button class="btn" id="clear">Clear</button>
-				<button class="btn" id="help">Help</button>
+		<div class="clipBoard">
+			<div id="clip"></div>	
+			<div id="paper">
+				<h1>Clip Board</h1>
+				<form>
+					<input id="input" type="text" placeholder="Add a new item">
+					<div id="btnCon">
+						<input class="btn" id="submit" type="submit" value="Add">
+						<button class="btn" id="clear">Clear</button>
+						<button class="btn" id="help">Help</button>
+					</div>
+				</form>
+				<i><ul id="list"></ul></i>
 			</div>
-		</form>
-		<i><ul id="list"></ul></i>
+		</div>
 	</div>
 </body>
 </html>
