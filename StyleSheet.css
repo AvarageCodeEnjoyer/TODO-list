@@ -77,7 +77,7 @@ h1{
 
 /* Make placeholder text white and centered */
 ::placeholder{
-  color: white;
+  color: rgb(0, 0, 0);
   text-align: center;
 }
 
@@ -86,7 +86,7 @@ h1{
   font-size: 1.5rem;
   color: black;
   outline: none;
-  border: 3px solid black;
+  border: 2px solid black;
   transition: var(--transition-Time);
 }
 
@@ -127,11 +127,16 @@ h1{
 
 /* UL lists are not centered normal because of the DOM */
 #list{
-  padding: 0px
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Style li items to make boxes */
 li {
+  width: max-content;
+  max-width: 600px;
   list-style-type: none;
   padding: 10px;
   margin: 5px;
