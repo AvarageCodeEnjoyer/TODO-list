@@ -15,22 +15,36 @@ submit.addEventListener('click', e => {
   e.preventDefault();
   let newItem = document.createElement("li");
   let input = document.getElementById("input").value
+
+  // Get "list" from local storage and push input to the "list" array
+  let currentList = JSON.parse(localStorage.getItem("list")) || []; 
+
   // Check if input is true
-  if(input === ""){
+  if (input === ""){
     alert("Write Something")
     return
   }
 
+  // Check to see if that value already exists in the array
+  for (i = 0; i < currentList.length; i++){
+    if (input === currentList[i].value){
+      alert("That item is already on your list")
+      return
+    }
+  }
+
+  
   // Set text of 'li' to the input and append it to the displayed list
   newItem.textContent = input;
   list.appendChild(newItem);
 
-  // Get "list" from local storage and push input to the "list" array
-  let currentList = JSON.parse(localStorage.getItem("list")) || [];
-  currentList.push(input);
+  // Push the input as an object with a checked flag to save it to local storage
+  currentList.push({value: input, checked: false});
 
   // Make "list" currentList to update the local storage
   localStorage.setItem("list", JSON.stringify(currentList));
+
+  document.getElementById("input").value = ""
 
 })
 
@@ -40,7 +54,15 @@ submit.addEventListener('click', e => {
 // Make list items gain class "completed" onclick
 list.addEventListener('click', e => {
   if (e.target.tagName === 'LI') {
-    // do something
+    let currentList = JSON.parse(localStorage.getItem("list"))
+
+    // Find the first value in currentList that is equal to the event target text
+    let index = currentList.findIndex(i => i.value === e.target.textContent)
+
+    // Toggle "completed" class of event target in currentList by toggling the "checked" value in the object
+    currentList[index].checked = !currentList[index].checked
+
+    localStorage.setItem("list", JSON.stringify(currentList));
     e.target.classList.toggle("completed")
   }
 })
@@ -51,6 +73,7 @@ list.addEventListener('click', e => {
 list.addEventListener('dblclick', e => {
   if (e.target.tagName === 'LI') {
     // Remove li from HTML
+    
     list.removeChild(e.target)
 
     // Get the list from local storage and save it as a variable
@@ -86,6 +109,14 @@ function removeItem(item) {
 }
 
 
+/* -------------------------- Display help message -------------------------- */
+
+help.addEventListener('click', (e) => {
+  e.preventDefault()
+  alert(" Add items by writing in text box and clicking 'add'. \n Check items off the list by clicking on them. \n Remove individual items by double clicking on them \n Clear local storage and list with 'clear'")
+})
+
+
 /* --------------------- Clear local storage with button -------------------- */
 
 clear.addEventListener('click', () => {
@@ -104,8 +135,12 @@ savedList.forEach(item => {
   const newItem = document.createElement("li");
 
   // Add the input value as the text content of the new li element
-  newItem.textContent = item;
+  newItem.textContent = item.value;
+
+  // Give the li element the class of "checked" if the item object has been checked
+  if(item.checked) newItem.classList.add("completed")
 
   // Add the new li element to the list
   list.appendChild(newItem);
 });
+
