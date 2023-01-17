@@ -109,11 +109,26 @@ function removeItem(item) {
 }
 
 
+/* -------------------------- random color on hover ------------------------- */
+
+list.addEventListener('onclick', e => {
+  if(e.target.tagName === "LI"){
+    let R = Math.floor(Math.random() * 255) + 1
+    let G = Math.floor(Math.random() * 255) + 1
+    let B = Math.floor(Math.random() * 255) + 1
+    let RGB =  R + "," + G + "," + B
+    document.documentElement.style.setProperty('--li-hover', RGB);
+  }
+})
+
 /* -------------------------- Display help message -------------------------- */
 
 help.addEventListener('click', (e) => {
   e.preventDefault()
-  alert(" Add items by writing in text box and clicking 'add'. \n Check items off the list by clicking on them. \n Remove individual items by double clicking on them \n Clear local storage and list with 'clear'")
+  alert(" Add items by writing in text box and clicking 'add'." + 
+    "\n \n Check items off the list by clicking on them." + 
+    "\n \n Remove individual items by double clicking on them." + 
+    "\n \n Clear local storage and list with 'clear'.", style="font-size: 20px")
 })
 
 
