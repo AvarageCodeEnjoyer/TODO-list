@@ -1,10 +1,12 @@
 :root{
   --transition-Time: 0.1s;
-  --hover-color: rgb(106, 156, 238);
   --completed-red: rgb(255, 100, 100);
   --clip-board-color: rgb(130,102,68);
+  --hover-color: rgb(106, 156, 238);
+  --li-hover: 0,0,0;
+  --background-color: rgb(104, 193, 198);
   --btn-color: rgb(115, 115, 115);
-  --background-color: rgb(126, 165, 168);
+  --metal-clip: rgb(164, 164, 164);
   --paper-color: rgb(210, 210, 210);
 }
 
@@ -15,6 +17,7 @@
 body{
   background-color: var(--background-color);
 }
+
 /* Make container center items and set font */
 .container{
   display: flex;
@@ -38,7 +41,7 @@ body{
 }
 
 #clip{
-  background-color: rgb(115, 115, 115);
+  background-color: var(--metal-clip);
   width: 300px;
   height: 100px;
   position: absolute;
@@ -69,7 +72,7 @@ form{
 
 h1{
   width: max-content;
-  background-color: var(--btn-color);
+  background-color: var(--metal-clip);
   padding: 10px 20px;
   margin-top: -20px;
   border-radius: 20px;
@@ -88,6 +91,7 @@ h1{
   outline: none;
   border: 2px solid black;
   transition: var(--transition-Time);
+  margin-top: -23px;
 }
 
 /* Change border on hover */
@@ -145,7 +149,7 @@ li {
 }
 
 li:hover{
-  color: var(--hover-color);
+  color: rgb(var(--li-hover));
   transition: var(--transition-Time);
 
 }
