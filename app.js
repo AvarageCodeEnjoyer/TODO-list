@@ -81,13 +81,9 @@ list.addEventListener('dblclick', e => {
 
     // Loop through everything in stored value to find a match and remove it
     for (i = 0; i < storedValue.length; i++){
-      // Checks if e.target is NOT storedValue[i] then do nothing 
-      if (e.target.textContent !== storedValue[i]){
-        console.log("don't remove")
-      }
-      // If it IS storedValue[i] then call the function removeItem with e.target as the input 
-      else{
-        console.log("remove")
+      // Checks if e.target is the storedValue[i].value then remove the object from the array 
+      if (e.target.textContent === storedValue[i].value){
+        console.log("removed " + e.target.textContent)
         removeItem(e.target.textContent)
         return
       }
@@ -118,6 +114,7 @@ list.addEventListener('onclick', e => {
     let B = Math.floor(Math.random() * 255) + 1
     let RGB =  R + "," + G + "," + B
     document.documentElement.style.setProperty('--li-hover', RGB);
+    console.log(RGB)
   }
 })
 

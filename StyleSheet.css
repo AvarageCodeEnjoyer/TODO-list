@@ -4,7 +4,7 @@
   --clip-board-color: rgb(130,102,68);
   --hover-color: rgb(106, 156, 238);
   --li-hover: 0,0,0;
-  --background-color: rgb(104, 193, 198);
+  --background-color: rgba(104, 193, 198, 0.574);
   --btn-color: rgb(115, 115, 115);
   --metal-clip: rgb(164, 164, 164);
   --paper-color: rgb(210, 210, 210);
