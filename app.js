@@ -33,7 +33,6 @@ submit.addEventListener('click', e => {
     }
   }
 
-  
   // Set text of 'li' to the input and append it to the displayed list
   newItem.textContent = input;
   list.appendChild(newItem);
@@ -47,7 +46,6 @@ submit.addEventListener('click', e => {
   document.getElementById("input").value = ""
 
 })
-
 
 /* ----------------------- 1 click on li for completed ---------------------- */
 
@@ -69,11 +67,9 @@ list.addEventListener('click', e => {
 
 /* --------------------- double click on li for removal --------------------- */
 
-
 list.addEventListener('dblclick', e => {
   if (e.target.tagName === 'LI') {
     // Remove li from HTML
-    
     list.removeChild(e.target)
 
     // Get the list from local storage and save it as a variable
@@ -83,40 +79,24 @@ list.addEventListener('dblclick', e => {
     for (i = 0; i < storedValue.length; i++){
       // Checks if e.target is the storedValue[i].value then remove the object from the array 
       if (e.target.textContent === storedValue[i].value){
-        console.log("removed " + e.target.textContent)
-        removeItem(e.target.textContent)
+        console.log("removed " + storedValue[i].value)
+        removeItem(i)
         return
       }
     }
-
   }
 })
 
 function removeItem(item) {
   // Get the array from local storage
   let storedValue = JSON.parse(localStorage.getItem("list"));
-  let index = storedValue.indexOf(item);
 
   // Use splice to remove the item at the specified index
-  storedValue.splice(index, 1);
+  storedValue.splice(item, 1);
 
   // Save the updated array back to local storage
   localStorage.setItem("list", JSON.stringify(storedValue));
 }
-
-
-/* -------------------------- random color on hover ------------------------- */
-
-list.addEventListener('onclick', e => {
-  if(e.target.tagName === "LI"){
-    let R = Math.floor(Math.random() * 255) + 1
-    let G = Math.floor(Math.random() * 255) + 1
-    let B = Math.floor(Math.random() * 255) + 1
-    let RGB =  R + "," + G + "," + B
-    document.documentElement.style.setProperty('--li-hover', RGB);
-    console.log(RGB)
-  }
-})
 
 /* -------------------------- Display help message -------------------------- */
 
@@ -125,9 +105,8 @@ help.addEventListener('click', (e) => {
   alert(" Add items by writing in text box and clicking 'add'." + 
     "\n \n Check items off the list by clicking on them." + 
     "\n \n Remove individual items by double clicking on them." + 
-    "\n \n Clear local storage and list with 'clear'.", style="font-size: 20px")
+    "\n \n Clear local storage and list with 'clear'.")
 })
-
 
 /* --------------------- Clear local storage with button -------------------- */
 
